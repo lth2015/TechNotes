@@ -111,8 +111,7 @@ Kubernetes的组件也要实现高可用，特别是ETCD集群的高可用，定
 
 随着越来越多的应用迁移到容器云中，需要建立一个可视化的管理系统，我们使用Kubernetes原生API搭建一套Web管理系统，通过对Namespace/ResourceQuota/Deployment/Service/Endpoint等API的调用实现资源配额的划分和应用生命周期的管理。
 
-容器云平台在易用性方面最大的挑战是Troubleshooting的环节，容器云最终是要交付开发人员使用，他们对Kubernetes并不了解，这让Troublesh的环境富有挑战，我们现在只是想通过websocket将kubectl exec的console展示给用户，或者让用户在ELK
-的日志中心产看日志，没有更好的方案，如果各位有更好的方案，请不吝赐教。
+容器云平台在易用性方面最大的挑战是Troubleshooting的环节，容器云最终是要交付开发人员使用，他们对Kubernetes并不了解，这让Troubleshooting的环节充满挑战，我们现在只是想通过websocket将kubectl exec的console展示给用户，或者让用户在日志中心(EFK)中查看日志，还没有更好的方案，如果各位有更好的方案，请不吝赐教。
 
 容器云未来要实现整个数据中心的可视化，让运维对所有的数据中心的实时运行情况一目了然，当然，实现这一目标有相当的难度。
 
