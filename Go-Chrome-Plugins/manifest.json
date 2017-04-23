@@ -1,0 +1,14 @@
+{
+  "manifest_version": 2,
+
+  "name": "My Chrome Extension",
+  "description": "This is a chrome extension written in Go",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "tabs"
+  ]
+}

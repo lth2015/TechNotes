@@ -1,0 +1,42 @@
+<component name="libraryTable">
+  <library name="GOPATH &lt;Go-Chrome-Plugins&gt;">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../src/gopl.io" />
+      <root url="file://$PROJECT_DIR$/../../src/govendor-example" />
+      <root url="file://$PROJECT_DIR$/../../yce/src/deploy" />
+      <root url="file://$PROJECT_DIR$/../../src/godeptest" />
+      <root url="file://$PROJECT_DIR$/../../yce/src/sql" />
+      <root url="file://$PROJECT_DIR$/../../src/bitbucket.org" />
+      <root url="file://$PROJECT_DIR$/../../src/gopkg.in" />
+      <root url="file://$PROJECT_DIR$/../../yce/src/golang.org" />
+      <root url="file://$PROJECT_DIR$/../../src/cloud.google.com" />
+      <root url="file://$PROJECT_DIR$/../../yce/src/app" />
+      <root url="file://$PROJECT_DIR$/../../src/github.com" />
+      <root url="file://$PROJECT_DIR$/../../yce/src/k8s.io" />
+      <root url="file://$PROJECT_DIR$/../../src/golang.org" />
+      <root url="file://$PROJECT_DIR$/../../yce/src/build" />
+      <root url="file://$PROJECT_DIR$/../../yce/src/gopkg.in" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../../src/gopl.io" />
+      <root url="file://$PROJECT_DIR$/../../src/govendor-example" />
+      <root url="file://$PROJECT_DIR$/../../yce/src/deploy" />
+      <root url="file://$PROJECT_DIR$/../../src/godeptest" />
+      <root url="file://$PROJECT_DIR$/../../yce/src/sql" />
+      <root url="file://$PROJECT_DIR$/../../src/bitbucket.org" />
+      <root url="file://$PROJECT_DIR$/../../src/gopkg.in" />
+      <root url="file://$PROJECT_DIR$/../../yce/src/golang.org" />
+      <root url="file://$PROJECT_DIR$/../../src/cloud.google.com" />
+      <root url="file://$PROJECT_DIR$/../../yce/src/app" />
+      <root url="file://$PROJECT_DIR$/../../src/github.com" />
+      <root url="file://$PROJECT_DIR$/../../yce/src/k8s.io" />
+      <root url="file://$PROJECT_DIR$/../../src/golang.org" />
+      <root url="file://$PROJECT_DIR$/../../yce/src/build" />
+      <root url="file://$PROJECT_DIR$/../../yce/src/gopkg.in" />
+    </SOURCES>
+    <excluded>
+      <root url="file://$PROJECT_DIR$" />
+    </excluded>
+  </library>
+</component>

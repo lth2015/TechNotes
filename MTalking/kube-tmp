@@ -1,0 +1,93 @@
+EventsSink
+EventCompress
+Event ETCD
+https://github.com/kubernetes/kubernetes/blob/master/docs/design/event_compression.md
+Source kubelet pkg/cmd/kubelet/app
+/Users/yp-tc-m-7019/mworks/yce-backend/src/k8s.io/kubernetes/cmd/kubelet/app/server.go
+
+Conclusion
+
+kubernetes/pkg/watch/mux.go
+
+Event 跟 etcd的list-watch机制下的event不一样 
+
+
+
+
+
+
+另一方面，这些输出的
+
+
+
+#### 明修栈道暗度陈仓 
+
+
+
+
+
+
+
+
+
+ControllerManager:
+* leaderelection: 谁当选？谁下台？
+
+NodeController-ControllerManager:
+* controller_utils: 记录Node事件（停止和删除节点上所有Pod、注册或移除Node等）和Node状态变化事件（CIDR不可用或分配失败、Node不可用等）
+
+DeploymentController-ControllerManager:
+* deployment_controller:回滚和扩容的事件
+
+JobController-ControllerManager:
+* jobcontroller:ScheduleJob事件
+
+HorizontalController-ControllerManager:
+* horizontal(podautoscaler): Pod自动水平扩容成功或失败事件
+
+ReplicationController-ControllerManager:
+* replication_controller：同上
+* replica_set: 关联到ReadPodControl结构，记录Pod创建成功或失败、删除成功或失败等事件
+
+ServiceController:
+* servicecontroller(servicecontroller): 创建云上LoadBalancer成功、更新或失败等事件
+
+Kubelet:
+* config(config):过滤校验失败的pod
+
+Kubelet:
+* helpers(container):记录内部容器的事件
+
+Kubelet:
+* docker_manager(dockertools):容器生命周期的各个事件
+
+Kubelet:
+* image_gc_manager: 查看磁盘空间是否足够，或释放空间失败等事件
+
+Kubelet:
+* kubelet:ClusterDNS丢失、无法为Pod挂载卷、不支持带宽整形等
+
+Kubelet:
+* oom_watcher(kubelet): 通过cAdvisor报告系统内存不足等事件
+
+Kubelet:
+* pod_worker(kubelet):同步Pod失败等
+
+* prober(kubelet):检测容器不健康等
+
+Kubelet:
+* rkt: rkt容器生命周期各个事件
+
+Kubelet:
+* image_manager
+
+* kubelet_runtime_manager: 
+
+
+* eviction_manager
+* controller(persistentvolume):
+* petset
+* disruption
+* daemoncontroller
+
+
