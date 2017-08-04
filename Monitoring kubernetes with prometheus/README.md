@@ -40,7 +40,7 @@
 
 下图是*Prometheus*的架构图：
 
-![](architecture.svg)
+![](arch.jpeg)
 
 更多细节请访问[*Prometheus*官方网站](https://prometheus.io/docs/introduction/overview/)
 
