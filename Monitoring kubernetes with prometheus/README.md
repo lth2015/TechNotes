@@ -97,3 +97,82 @@ ds/prometheus-node-exporter      7         7         <none>          16d
 NAME          HOSTS                ADDRESS   PORTS     AGE
 ing/grafana   grafana.yeepay.com             80        16d
 ```
+
+*manifests-all.yaml*文件中使用30161和30162的*Nodeport*端口作为*Grafana*和*Prometheus* Web界面的访问端口。
+
+
+### 四、监控初始化
+----------------------------------
+
+#### 1、 登录*Grafana*
+---------------------
+
+通过[http://${Your_API_SERVER_IP}:30161/]()登录*Grafana*，默认的用户名和密码都是*admin*，登录如下图所示：
+
+![](login.png)
+
+
+#### 2、添加数据源
+-------------------
+
+点击左上角图标，找到*DataSource*选项，添加数据源：
+
+![](datasource.png)
+
+#### 3、添加*Prometheus*的数据源
+--------------------
+
+将*Prometheus*的作为数据源的相关参数如下图所示：
+
+![](prometheus-ds.png)
+
+点击*Save & Test*按钮，保存数据源。
+
+
+#### 五、监控*Kubernetes*集群
+---------------
+
+#### 1、导入模板文件：
+--------------------
+
+点击左上角*Grafana*的图标，选在*Dashboard*选项：
+
+![](dashboard.png)
+
+点击*Import*导入监控模板：
+
+![](import.png)
+
+可以从[这里](https://grafana.com/dashboards)下载各种监控模板，然后使用*Upload*到*Grafana*:
+
+![](upload.png)
+
+
+#### 2、Kubernetes集群监控实例
+------------
+
+![](k8scluster.png)
+
+下载此监控模板：[kubernetes-cluster-monitoring-via-prometheus_rev2.json](grafana/kubernetes-cluster-monitoring-via-prometheus_rev2.json)
+
+
+#### 3、Deployment级别监控实例
+------------------
+
+![](k8sdeploymetrics.png)
+
+下载此监控模板：[deployment-metrics_rev1.json](grafana/deployment-metrics_rev1.json)
+
+#### 4、Pod级别资源监控实例
+-----------------
+
+![](grafanapod.png)
+
+下载此监控模板：[pod-metrics_rev2.json](grafana/pod-metrics_rev2.json)
+
+#### 5、App级别的资源、请求量监控实例
+--------------
+
+![](appmetrics.png)
+
+下载此监控模板：[kubernetes-apps_rev1.json](grafana/kubernetes-apps_rev1.json)
