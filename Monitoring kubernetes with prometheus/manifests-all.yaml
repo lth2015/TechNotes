@@ -382,11 +382,11 @@ spec:
         resources:
           # keep request = limit to keep this container in guaranteed class
           limits:
-            cpu: 100m
-            memory: 100Mi
+            cpu: 4000m
+            memory: 8000Mi
           requests:
-            cpu: 100m
-            memory: 100Mi
+            cpu: 1000m
+            memory: 1000Mi
         env:
           # The following env variables set up basic auth twith the default admin user and admin password.
           - name: GF_AUTH_BASIC_ENABLED
@@ -2498,11 +2498,11 @@ spec:
           containerPort: 9090
         resources:
           requests:
-            cpu: 500m
-            memory: 500M
+            cpu: 2000m
+            memory: 4000M
           limits:
-            cpu: 500m
-            memory: 500M
+            cpu: 4000m
+            memory: 8000M
         volumeMounts:
         - name: config-volume
           mountPath: /etc/prometheus
