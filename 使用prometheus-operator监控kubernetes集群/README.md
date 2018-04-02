@@ -163,4 +163,147 @@ Prometheus的监控面板使用NodePort 30902做作为访问入口，使用`amdi
 ![](images/StatefulSet.png)
 
 
-*ETCD*集群是`Kubernetes`的大脑，上述部署方式不支持*ETCD*集群的监控，需要额外部署
+*ETCD*集群是`Kubernetes`的大脑，上述部署方式不支持*ETCD*集群的监控，需要另外部署。
+
+
+### 部署ETCD集群的监控
+------
+
+#### 部署ETCD监控相关组件
+------
+
+* **创建etc-secrets**
+
+```bash
+kubectl -n monitoring create secret generic etcd-certs --from-file=/etc/kubernetes/pki/etcd-ca.crt --from-file=/etc/kubernetes/pki/etcd.crt --from-file=/etc/kubernetes/pki/etcd.key
+```
+
+* **Prometheus加载etcd-certs**
+
+修改*Prometheus*的配置：
+```bash
+vim prometheus-operator/contrib/kube-prometheus/manifests/prometheus/prometheus-k8s.yaml 
+```
+
+```bash
+apiVersion: monitoring.coreos.com/v1
+kind: Prometheus
+metadata:
+  name: k8s
+  labels:
+    prometheus: k8s
+spec:
+  replicas: 2
+  secrets:
+  - etcd-certs
+  version: v1.7.1
+```
+
+更新集群中*Prometheus*的*CRD*
+
+```bash
+kubectl -n monitoring replace -f contrib/kube-prometheus/manifests/prometheus/prometheus-k8s.yaml
+```
+
+* **创建Service,Endpoint和ServiceMonitor**
+
+```bash
+cat  etcd-cluster.yaml
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: etcd-k8s
+  labels:
+    k8s-app: etcd
+spec:
+  type: ClusterIP
+  clusterIP: None
+  ports:
+  - name: api
+    port: 2379
+    protocol: TCP
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: etcd-k8s
+  labels:
+    k8s-app: etcd
+subsets:
+- addresses:
+  - ip: IP_OF_YOUR_ETCD_NODE_0
+    nodeName: etcd0
+  - ip: IP_OF_YOUR_ETCD_NODE_1
+    nodeName: etcd1
+  - ip: IP_OF_YOUR_ETCD_NODE_2
+    nodeName: etcd2
+  ports:
+  - name: api
+    port: 2379
+    protocol: TCP
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: etcd-k8s
+  labels:
+    k8s-app: etcd-k8s
+spec:
+  jobLabel: k8s-app
+  endpoints:
+  - port: api
+    interval: 30s
+    scheme: https
+    tlsConfig:
+      caFile: /etc/prometheus/secrets/etcd-certs/etcd-ca.crt
+      certFile: /etc/prometheus/secrets/etcd-certs/etcd.crt
+      keyFile: /etc/prometheus/secrets/etcd-certs/etcd.key
+      #use insecureSkipVerify only if you cannot use a Subject Alternative Name
+      insecureSkipVerify: true 
+  selector:
+    matchLabels:
+      k8s-app: etcd
+  namespaceSelector:
+    matchNames:
+    - monitoring
+```
+
+```bash
+kubectl create -f etcd-cluster.yaml
+```
+
+#### 查看ETCD监控是否正确部署
+--------
+
+查看Prometheus中的Target：
+
+![](images/prometheus targets.png)
+
+其中ETCD的两个节点（为了测试就部署了两个节点），监控界面如下图所示：
+
+![](images/etcd by prometheus.png)
+
+![](images/etcd.png)
+
+
+
+### 附录：Prometheus && Kubernetes相关知识
+----------
+
+#### Prometheus-Operator workflow
+-------
+![](images/operator-workflow.png)
+
+#### Kubernetes Metrics with Prometheus
+-------
+![](images/Kubernetes Metrics with Prometheus.png)
+
+#### Kubernetes monitoring proposal
+-------
+![](images/Kubernetes monitoring proposal.jpeg)
+
+#### Kubernetes-prometheus architecture
+-------
+![](images/Kubernetes-prometheus architecture.jpeg)
+
