@@ -299,19 +299,16 @@ kubectl create -f etcd-cluster.yaml
 #### Kubernetes Metrics with Prometheus
 -------
 
-![](images/Kubernetes Metrics with Prometheus.png)
-
-![](images/Kubernetes Metrics with Prometheus.png)
+![](images/kubernetes-metrics-with-prometheus.png)
 
 #### Kubernetes monitoring proposal
 -------
 
-![](images/Kubernetes monitoring proposal.jpeg)
-
 ![](images/kubernetes-metrics-with-prometheus.png)
+
 
 #### Kubernetes-prometheus architecture
 -------
 
-![](images/Kubernetes-prometheus architecture.jpeg)
+![](images/kubernetes-prometheus-architecture.jpeg)
 
