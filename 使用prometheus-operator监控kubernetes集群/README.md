@@ -287,7 +287,6 @@ kubectl create -f etcd-cluster.yaml
 ![](images/etcd.png)
 
 
-![](images/Kubernetes Metrics with Prometheus.png)
 
 ### 附录：Prometheus && Kubernetes相关知识
 ----------
@@ -299,6 +298,8 @@ kubectl create -f etcd-cluster.yaml
 
 #### Kubernetes Metrics with Prometheus
 -------
+
+![](images/Kubernetes Metrics with Prometheus.png)
 
 ![](images/Kubernetes Metrics with Prometheus.png)
 
