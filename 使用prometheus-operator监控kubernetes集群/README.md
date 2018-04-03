@@ -287,23 +287,28 @@ kubectl create -f etcd-cluster.yaml
 ![](images/etcd.png)
 
 
+![](images/Kubernetes Metrics with Prometheus.png)
 
 ### 附录：Prometheus && Kubernetes相关知识
 ----------
 
 #### Prometheus-Operator workflow
 -------
+
 ![](images/operator-workflow.png)
 
 #### Kubernetes Metrics with Prometheus
 -------
+
 ![](images/Kubernetes Metrics with Prometheus.png)
 
 #### Kubernetes monitoring proposal
 -------
+
 ![](images/Kubernetes monitoring proposal.jpeg)
 
 #### Kubernetes-prometheus architecture
 -------
+
 ![](images/Kubernetes-prometheus architecture.jpeg)
 
