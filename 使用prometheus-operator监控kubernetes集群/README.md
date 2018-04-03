@@ -304,7 +304,7 @@ kubectl create -f etcd-cluster.yaml
 #### Kubernetes monitoring proposal
 -------
 
-![](images/kubernetes-metrics-with-prometheus.png)
+![](images/kubernetes-monitoring-proposal.jpeg)
 
 
 #### Kubernetes-prometheus architecture
