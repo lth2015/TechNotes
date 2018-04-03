@@ -132,19 +132,19 @@ customresourcedefinitions/servicemonitors.monitoring.coreos.com   3d
 
 默认配置下，Prometheus web使用30900的NodePort作为访问端口，打开`http://nodeip:30900/`查看web界面：
 
-![](images/prometheus graph.png)
+![](images/prometheus-graph.png)
 
 Prometheus的监控面板使用NodePort 30902做作为访问入口，使用`amdin/admin`进行登录。
 
 *Prometheus*的*Dashboard*提供了各种监控模板，涵盖`Cluster/Node/Deployment/StatefulSet/Pods`等多个维度，基本上够用了：
 
-![](images/prometheus dashboard.png)
+![](images/prometheus-dashboard.png)
 
 下面展示几个示例：
 
 **Kubernetes Cluster Health*
 
-![](images/kubernetes cluster health.png)
+![](images/kubernetes-cluster-health.png)
 
 **Kubernetes Nodes**
 
@@ -278,11 +278,11 @@ kubectl create -f etcd-cluster.yaml
 
 查看Prometheus中的Target：
 
-![](images/prometheus targets.png)
+![](images/prometheus-targets.png)
 
 其中ETCD的两个节点（为了测试就部署了两个节点），监控界面如下图所示：
 
-![](images/etcd by prometheus.png)
+![](images/etcd-by-prometheus.png)
 
 ![](images/etcd.png)
 
